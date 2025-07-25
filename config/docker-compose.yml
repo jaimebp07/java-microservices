@@ -1,0 +1,27 @@
+version: '3.8'
+
+services:
+
+    postgresql:
+      image: postgres:16.1
+      container_name: db-companies
+      restart: always
+      volumes:
+        - ./sql/create_schema.sql:/docker-entrypoint-initdb.d/create_schema.sql
+        - ./sql/data.sql:/docker-entrypoint-initdb.d/data.sql
+      environment:
+        POSTGRES_DB: 'companies'
+        POSTGRES_USER: 'admin'
+        POSTGRES_PASSWORD: '1234'
+      ports:
+        - '5433:5432' 
+
+    pgadmin:
+      image: dpage/pgadmin4
+      environment: 
+        PGADMIN_DEFAULT_EMAIL: 'admin@admin.com'
+        PGADMIN_DEFAULT_PASSWORD: 'admin'
+      ports:
+        - '80:80'
+      depends_on:
+        - postgresql
