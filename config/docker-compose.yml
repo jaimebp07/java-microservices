@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
 
-    postgresql:
+    postgresql: # Host name/address, pgadmin connection
       image: postgres:16.1
       container_name: db-companies
       restart: always
@@ -11,10 +11,10 @@ services:
         - ./sql/data.sql:/docker-entrypoint-initdb.d/data.sql
       environment:
         POSTGRES_DB: 'companies'
-        POSTGRES_USER: 'admin'
-        POSTGRES_PASSWORD: '1234'
+        POSTGRES_USER: 'admin' # Username, pgadmin connection
+        POSTGRES_PASSWORD: '1234' # Password, pgadmin connection
       ports:
-        - '5433:5432' 
+        - '5433:5432' # Port 5432, pgadmin connection
 
     pgadmin:
       image: dpage/pgadmin4

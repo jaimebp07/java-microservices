@@ -11,3 +11,17 @@ Docker compose up
 PGADMIN_DEFAULT_EMAIL: 'admin@admin.com' 
 PGADMIN_DEFAULT_PASSWORD: 'admin'
 ```
+4. Createa connection to the database by entering the 'add new server' option and entering the following data.
+``` txt
+name: docker  (The name can be anything)
+Host name / Address: postgresql ← (Este es el nombre del servicio en docker-compose)
+Port: 5432
+Maintenance database: companies
+Username: admin
+Password: 1234
+```
+
+5. Run the following query
+```
+
+```
