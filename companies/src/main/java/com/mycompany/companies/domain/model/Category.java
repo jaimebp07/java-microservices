@@ -7,5 +7,6 @@ public enum Category {
     CLOUD_COMPUTING,
     DEVICES,
     EDUCATION,
+    ALIMENTACION,
     NONE
 }

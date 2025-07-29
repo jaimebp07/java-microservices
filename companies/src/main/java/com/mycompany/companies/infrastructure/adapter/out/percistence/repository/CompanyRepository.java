@@ -21,8 +21,8 @@ public class CompanyRepository implements CompanyRepositoryPort {
 
     @Override
     public Optional<Company> findByName(String name) {
-        //return companyJpaRepository.findByName(name).orElseThrow(() -> new NoSuchElementException("Company not found"));
-        throw new UnsupportedOperationException("Unimplemented method 'findByName'");
+        return companyJpaRepository.findByName(name)
+            .map(companyEntityMapper::toDomain);
     }
 
     @Override
@@ -40,15 +40,17 @@ public class CompanyRepository implements CompanyRepositoryPort {
 
     @Override
     public Company update(Company company, String name) {
-        Company currentCompany = findByName(name).orElseThrow(() -> new NoSuchElementException("Company not found"));
-        CompanyEntity companyUpdate = companyEntityMapper.toEntity(company);
-        CompanyEntity companyToUpdate = companyEntityMapper.toEntity(currentCompany);
+        CompanyEntity currentEntity = companyJpaRepository.findByName(name)
+            .orElseThrow(() -> new NoSuchElementException("Company not found"));
 
-        companyToUpdate.setFounder(companyUpdate.getFounder());
-        companyToUpdate.setLogo(companyUpdate.getLogo());
-        companyToUpdate.setFoundationDate(companyUpdate.getFoundationDate());
-        companyToUpdate.setWebSites(companyUpdate.getWebSites());
+        currentEntity.setName(company.getName());
+        currentEntity.setFounder(company.getFounder());
+        currentEntity.setLogo(company.getLogo());
+        currentEntity.setFoundationDate(company.getFoundationDate());
+        currentEntity.setWebSites(companyEntityMapper.toEntity(company).getWebSites());
 
-        return companyEntityMapper.toDomain(companyJpaRepository.save(companyToUpdate));
+        CompanyEntity updatedEntity = companyJpaRepository.save(currentEntity);
+
+        return companyEntityMapper.toDomain(updatedEntity); 
     }
 }

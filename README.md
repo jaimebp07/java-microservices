@@ -22,6 +22,6 @@ Password: 1234
 ```
 
 5. Run the following query
-```
-
+```sql
+select * from company c join web_site ws on c.id = ws.id_company where c."name" = 'Huesosparati';
 ```
