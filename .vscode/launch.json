@@ -9,6 +9,16 @@
             "projectName": "companies",
             "args": "",
             "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-RegistryServerApplication<registry-server>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.mycompany.registry_server.RegistryServerApplication",
+            "projectName": "registry-server",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
         }
     ]
 }
