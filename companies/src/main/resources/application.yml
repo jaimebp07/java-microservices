@@ -1,13 +1,24 @@
 spring:
+    datasource:
+        username: ${spring.datasource.username}
+        hikari:
+            maximum-pool-size: ${spring.datasource.maximum-pool-size}
+            connection-timeout: ${spring.datasource.connection-timeout}
+        url: ${spring.datasource.url}
+        password: ${spring.datasource.password}
     application:
         name: companies
     jpa:
         show-sql: "true"
+    profiles:
+        default: default
+    config:
+        import: "optional:configserver:http://localhost:7777" #Config-server path
 
 server:
     servlet:
         context-path: /companies-crud
-    port: 0
+    port: 8081
 
 logging:
     level:
