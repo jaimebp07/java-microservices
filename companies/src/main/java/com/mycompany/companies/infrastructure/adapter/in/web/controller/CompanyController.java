@@ -33,9 +33,9 @@ public class CompanyController {
     private final CompanyDtoMapper companyDtoMapper;
 
     @Operation(summary = "get a company given a company name")
-    @GetMapping(path = "{name}")
-    public ResponseEntity<CompanyDTO> get(@PathVariable String name) {
-        log.info("GET: company ()", name);
+    @GetMapping(path = "/{name}")
+    public ResponseEntity<CompanyDTO> get(@PathVariable("name") String name) {
+        log.info("GET: company ({})", name);
         return ResponseEntity.ok(companyDtoMapper.toDTO(this.companyService.readByName(name)));
     }
 
