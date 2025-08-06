@@ -27,3 +27,16 @@ select * from company c join web_site ws on c.id = ws.id_company where c."name" 
 ```
 
 6. [swagger](http://localhost:8081/companies-crud/swagger-ui/index.html)
+
+7. Configure the github token in the enviroment variables. If you are working with VS code you can setting it in the launch.json file.
+
+8. Run the aplications in the following order :
+    - registry-server
+    - config-server
+    - companies
+    - report-ms
+
+9. Comand to run a micro-service
+```sh
+./gradlew bootRun
+```
