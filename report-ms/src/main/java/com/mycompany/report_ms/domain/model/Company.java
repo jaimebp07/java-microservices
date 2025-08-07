@@ -12,6 +12,8 @@ public class Company {
     private LocalDate foundationDate;
     private List<WebSite> webSites;
 
+    public Company(){}
+    
     public Company(String name, String founder, String logo, LocalDate foundationDate, List<WebSite> webSites) {
         this.name = name;
         this.founder = founder;

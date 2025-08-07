@@ -1,6 +1,7 @@
 package com.mycompany.report_ms.infrastructure.in.web;
 
 import java.util.Map;
+import java.util.Optional;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,15 +15,16 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 
 @RestController
-@RequestMapping(path = "report")
+@RequestMapping(path = "/report")
 @AllArgsConstructor
 public class ReportController {
 
     private final ReportServicePort reportService;
 
-    @GetMapping( path = "{name}" )
+    @GetMapping( path = "/{name}" )
     public ResponseEntity<Map<String, String>> makeReport(@PathVariable("name") String name){
-        Map<String, String> report = Map.of("report",this.reportService.makeReport(name));
+        Map<String, String> report = Map.of("report", Optional.ofNullable(this.reportService.makeReport(name)).orElse("default"));
         return ResponseEntity.ok(report);
     }
 }
+

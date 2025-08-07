@@ -6,6 +6,8 @@ public class WebSite {
     private Category category;
     private String description;
 
+    public WebSite(){}
+    
     public WebSite(String name, Category category, String description) {
         this.name = name;
         this.category = category;

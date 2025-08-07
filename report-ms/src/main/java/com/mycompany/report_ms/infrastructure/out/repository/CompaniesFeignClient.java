@@ -6,12 +6,12 @@ import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
-import com.mycompany.report_ms.domain.model.Company;
+import com.mycompany.report_ms.infrastructure.out.repository.DTO.CompanyDTO;
 
-@FeignClient(name = "companies-crud")
+@FeignClient(name = "companies")
 public interface CompaniesFeignClient {
 
-    @GetMapping(path = "/company/{name}")
-    Optional<Company> getByName(@PathVariable("name") String name);
+    @GetMapping(path = "/companies-crud/company/{name}")
+    Optional<CompanyDTO> getByName(@PathVariable("name") String name);
 
 }
