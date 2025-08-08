@@ -10,5 +10,5 @@ public interface CompanyDtoMapper {
 
     CompanyDTO toDTO(Company company);
 
-    Company toDomain(CompanyDTO companyEntity);
+    Company toDomain(CompanyDTO companyDTO);
 }

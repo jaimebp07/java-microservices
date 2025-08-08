@@ -10,5 +10,5 @@ public interface WebSiteDtoMapper {
 
     WebSiteDTO toEntity(WebSite webSite);
 
-    WebSite toDomain(WebSiteDTO webSiteEntity);
+    WebSite toDomain(WebSiteDTO webSiteDTO);
 }

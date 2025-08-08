@@ -40,3 +40,5 @@ select * from company c join web_site ws on c.id = ws.id_company where c."name" 
 ```sh
 ./gradlew bootRun
 ```
+
+NOTA: De momento para ejecutar el report-ms toca desde la terminal con ./gradlew bootRun
