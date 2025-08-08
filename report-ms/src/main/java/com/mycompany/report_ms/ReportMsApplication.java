@@ -7,7 +7,7 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 
 @SpringBootApplication
 @EnableDiscoveryClient
-@EnableFeignClients
+@EnableFeignClients(basePackages = "com.mycompany.report_ms.infrastructure.out.repository")
 public class ReportMsApplication {
 
 	public static void main(String[] args) {

@@ -26,19 +26,39 @@ public class Company {
         return name;
     }
 
+    public void  setName(String name){
+        this.name = name;
+    }
+
     public String getFounder() {
         return founder;
+    }
+
+    public void  setFounder(String founder){
+        this.founder = founder;
     }
 
     public String getLogo() {
         return logo;
     }
 
+    public void  setLogo(String logo){
+        this.logo = logo;
+    }
+
     public LocalDate getFoundationDate() {
         return foundationDate;
     }
 
+    public void  setFoundationDate(LocalDate foundationDate){
+        this.foundationDate = foundationDate;
+    }
+
     public List<WebSite> getWebSites() {
         return webSites;
+    }
+
+    public void  setWebSites(List<WebSite> webSites){
+        this.webSites = webSites;
     }
 }
